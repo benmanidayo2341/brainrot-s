@@ -15,7 +15,7 @@
       justify-content: center;
     }
 
-    /* お知らせバー */
+    /* お知らせバー（ループ対応） */
     .ticker {
       position: fixed;
       top: 0;
@@ -31,15 +31,20 @@
       box-shadow: 0 0 10px #ff0;
     }
 
-    .ticker-text {
-      display: inline-block;
-      white-space: nowrap;
-      animation: scroll 12s linear infinite;
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-loop 20s linear infinite;
     }
 
-    @keyframes scroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    .ticker-text {
+      padding: 0 40px;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll-loop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     header {
@@ -109,7 +114,10 @@
 <body>
 
   <div class="ticker">
-    <div class="ticker-text">サイトオープン記念セール開催中!!!</div>
+    <div class="ticker-track">
+      <div class="ticker-text">サイトオープン記念セール開催中!!!</div>
+      <div class="ticker-text">サイトオープン記念セール開催中!!!</div>
+    </div>
   </div>
 
   <header>
