@@ -15,9 +15,37 @@
       justify-content: center;
     }
 
+    /* お知らせバー */
+    .ticker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ff0;
+      color: #000;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 8px 0;
+      overflow: hidden;
+      z-index: 10;
+      box-shadow: 0 0 10px #ff0;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 12s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
     header {
       width: 100%;
       text-align: center;
+      margin-top: 60px; /* お知らせバーの高さ分ずらす */
       margin-bottom: 20px;
     }
 
@@ -79,6 +107,10 @@
   </style>
 </head>
 <body>
+
+  <div class="ticker">
+    <div class="ticker-text">サイトオープン記念セール開催中!!!</div>
+  </div>
 
   <header>
     <h1>Brainrot Shop</h1>
